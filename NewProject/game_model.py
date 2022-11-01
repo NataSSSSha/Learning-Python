@@ -12,3 +12,4 @@ class GameModel:
     matrix = [['' for x in range(GRID_SIZE)] for y in range(GRID_SIZE)]
     count_of_balls = 0
     max_count_of_balls = grid_size * grid_size - 2
+    canvas_ids = []

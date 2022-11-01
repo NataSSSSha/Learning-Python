@@ -27,14 +27,17 @@ class Game:
                                         fill='gray')
     # рисует матрицу с шарами
     def draw_balls(self):
+        for i in range(len(self.model.canvas_ids)):
+            self.canvas.delete(self.model.canvas_ids[i])
+        self.model.canvas_ids.clear()
         for i in range(self.model.grid_size):
             for j in range(self.model.grid_size):
                 if self.model.matrix[i][j] != '':
-                    self.canvas.create_oval(i * self.model.square_size + self.model.oval_size,
+                    self.model.canvas_ids.append(self.canvas.create_oval(i * self.model.square_size + self.model.oval_size,
                                             j * self.model.square_size + self.model.oval_size,
                                             i * self.model.square_size + self.model.square_size - self.model.oval_size,
                                             j * self.model.square_size + self.model.square_size - self.model.oval_size,
-                                            fill=self.model.matrix[i][j])
+                                            fill=self.model.matrix[i][j]))
     # выводит текущее состояние
     def draw_state(self):
         self.draw_balls()
